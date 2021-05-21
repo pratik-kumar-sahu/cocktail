@@ -81,6 +81,19 @@
 
 .details {
   margin: 2rem;
+
+  &__ingredients {
+    display: flex;
+
+    &-image {
+      width: 30rem;
+    }
+
+    &-list {
+      font-size: 1.4rem;
+      list-style: none;
+    }
+  }
 }
 
 .error {

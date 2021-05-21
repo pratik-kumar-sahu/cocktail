@@ -5,12 +5,36 @@ function Details(props) {
   const { cocktails } = useContext(AppContext);
   const id = props.match.params.id;
   const cocktail = cocktails.filter((e) => e.idDrink === id);
-  console.log(cocktail);
-  const { strDrinkThumb, strDrink } = cocktail[0];
+  const {
+    strDrinkThumb,
+    strDrink,
+    strIngredient1,
+    strIngredient2,
+    strIngredient3,
+    strIngredient4,
+    strIngredient5,
+  } = cocktail[0];
 
   return (
     <div className="details">
-      {strDrinkThumb && strDrink && <img src={strDrinkThumb} alt={strDrink} />}
+      {cocktail.length > 0 && (
+        <>
+          <div className="details__ingredients">
+            <img
+              className="details__ingredients-image"
+              src={strDrinkThumb}
+              alt={strDrink}
+            />
+            <div className="details__ingredients-list">
+              {strIngredient1 && <li>{strIngredient1}</li>}
+              {strIngredient2 && <li>{strIngredient2}</li>}
+              {strIngredient3 && <li>{strIngredient3}</li>}
+              {strIngredient4 && <li>{strIngredient4}</li>}
+              {strIngredient5 && <li>{strIngredient5}</li>}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

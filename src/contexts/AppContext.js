@@ -4,13 +4,12 @@ export const AppContext = createContext();
 
 function AppContextProvider(props) {
   const [cocktails, setCocktails] = useState([]);
-  const [search, setSearch] = useState("a");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCocktails(data.drinks);
       });
   }, [search]);
