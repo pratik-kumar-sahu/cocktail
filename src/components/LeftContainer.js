@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function LeftContainer() {
   return (
@@ -10,6 +11,12 @@ function LeftContainer() {
           placeholder="Search cocktails"
         />
       </form>
+      <Link className="test" to="/">
+        Home
+      </Link>
+      <Link className="test" to="/about">
+        About
+      </Link>
     </div>
   );
 }
