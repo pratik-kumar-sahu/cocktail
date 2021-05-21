@@ -14,7 +14,7 @@ function RightContainer() {
           <Link
             style={{ color: "inherit", textDecoration: "none" }}
             key={idDrink}
-            to="/details"
+            to={`/details/${idDrink}`}
           >
             <Card {...cocktail} />
           </Link>

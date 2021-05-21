@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 
-function Details() {
+function Details(props) {
+  const { cocktails } = useContext(AppContext);
+  const id = props.match.params.id;
+  const cocktail = cocktails.filter((e) => e.idDrink === id);
+  console.log(cocktail);
+  const { strDrinkThumb, strDrink } = cocktail[0];
+
   return (
     <div className="details">
-      <img
-        src="https://www.thecocktaildb.com/images/media/drink/bry4qh1582751040.jpg"
-        alt="cocktail-img"
-      />
+      {strDrinkThumb && strDrink && <img src={strDrinkThumb} alt={strDrink} />}
     </div>
   );
 }
