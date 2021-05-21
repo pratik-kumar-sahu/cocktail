@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
+import { AppContext } from "../contexts/AppContext";
 
 function RightContainer() {
+  const { cocktails } = useContext(AppContext);
+
   return (
     <div className="rightContainer">
-      <Link style={{ color: "inherit", textDecoration: "none" }} to="/details">
-        <Card />
-      </Link>
+      {cocktails.map((cocktail) => {
+        const { idDrink } = cocktail;
+        return (
+          <Link
+            style={{ color: "inherit", textDecoration: "none" }}
+            key={idDrink}
+            to="/details"
+          >
+            <Card {...cocktail} />
+          </Link>
+        );
+      })}
     </div>
   );
 }
