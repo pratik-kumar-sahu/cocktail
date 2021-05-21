@@ -11,7 +11,7 @@
 .leftContainer {
   width: 25%;
   height: 100%;
-  background-color: lightcoral;
+  background-color: var(--primary-medium);
 
   &__search {
     margin: 2rem;
@@ -33,7 +33,7 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
-  background-color: lightseagreen;
+  background-color: var(--white);
 
   &__card {
     width: 25rem;
@@ -43,7 +43,9 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    cursor: pointer;
     background-color: var(--white);
+    box-shadow: var(--shadow-dark);
 
     &--image {
       width: 100%;
@@ -74,5 +76,9 @@
 
 .about {
   font-size: 1.4rem;
+  margin: 2rem;
+}
+
+.details {
   margin: 2rem;
 }
