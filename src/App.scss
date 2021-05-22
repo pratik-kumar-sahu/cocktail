@@ -11,7 +11,7 @@
 .leftContainer {
   width: 25%;
   height: 100%;
-  background-color: var(--primary-medium);
+  background-color: var(--gray-medium);
 
   &__search {
     margin: 2rem;
@@ -30,6 +30,7 @@
 .rightContainer {
   width: 75%;
   height: 100%;
+  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
@@ -38,7 +39,7 @@
   &__card {
     width: 25rem;
     height: 33rem;
-    margin: 2rem;
+    margin: 1rem 2rem 2rem 1rem;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -69,17 +70,27 @@
 
 .test {
   font-size: 1.4rem;
-  margin: 2rem;
+  margin-left: 2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
   text-decoration: none;
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--gray-dark);
 }
 
 .about {
+  width: 75%;
   font-size: 1.4rem;
   margin: 2rem;
+  overflow: scroll;
+
+  & > p {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .details {
+  width: 75%;
   margin: 2rem;
 
   &__contents {
@@ -122,12 +133,12 @@
       font-size: 1.4rem;
       list-style: none;
       display: flex;
-      color: var(--gray-medium);
+      color: var(--gray-dark);
 
       & > li {
         margin-right: 1rem;
         padding: 0.2rem 0.5rem;
-        background-color: azure;
+        background-color: lightpink;
       }
     }
   }
@@ -136,6 +147,11 @@
 .error {
   font-size: 1.4rem;
   margin: 2rem;
+
+  & > button {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.6rem;
+  }
 }
 
 .loader {

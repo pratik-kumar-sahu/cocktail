@@ -3,10 +3,21 @@ import { Link } from "react-router-dom";
 
 function Error() {
   return (
-    <div className="error">
-      Page Not Found
-      <Link to="/">Go to Home</Link>
-    </div>
+    <h2 className="error">
+      404! Page Not Found
+      <Link
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          marginLeft: ".5rem",
+        }}
+        to="/"
+      >
+        <button style={{ padding: ".1rem .3rem", cursor: "pointer" }}>
+          Back to Home
+        </button>
+      </Link>
+    </h2>
   );
 }
 

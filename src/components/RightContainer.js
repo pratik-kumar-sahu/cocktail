@@ -9,7 +9,9 @@ function RightContainer() {
 
   if (loading) {
     return <Loading />;
-  } else if (cocktails.length < 1) {
+  }
+
+  if (cocktails.length < 1) {
     return (
       <div className="error">
         No cocktails matched. Try searching another one
@@ -19,22 +21,18 @@ function RightContainer() {
 
   return (
     <div className="rightContainer">
-      {cocktails ? (
-        cocktails.map((cocktail) => {
-          const { idDrink } = cocktail;
-          return (
-            <Link
-              style={{ color: "inherit", textDecoration: "none" }}
-              key={idDrink}
-              to={`/details/${idDrink}`}
-            >
-              <Card {...cocktail} />
-            </Link>
-          );
-        })
-      ) : (
-        <div>No results found</div>
-      )}
+      {cocktails.map((cocktail) => {
+        const { idDrink } = cocktail;
+        return (
+          <Link
+            style={{ color: "inherit", textDecoration: "none" }}
+            key={idDrink}
+            to={`/details/${idDrink}`}
+          >
+            <Card {...cocktail} />
+          </Link>
+        );
+      })}
     </div>
   );
 }
