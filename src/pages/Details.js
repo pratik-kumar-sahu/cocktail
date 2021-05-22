@@ -1,39 +1,81 @@
-import React, { useContext } from "react";
-import { AppContext } from "../contexts/AppContext";
+import React, { useEffect, useState } from "react";
 
 function Details(props) {
-  const { cocktails } = useContext(AppContext);
-  const id = props.match.params.id;
-  const cocktail = cocktails.filter((e) => e.idDrink === id);
-  const {
-    strDrinkThumb,
-    strDrink,
-    strIngredient1,
-    strIngredient2,
-    strIngredient3,
-    strIngredient4,
-    strIngredient5,
-  } = cocktail[0];
+  const [selectedCocktail, setSelectedCocktail] = useState(null);
+  const id = Number(props.match.params.id);
+
+  useEffect(() => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSelectedCocktail(data.drinks);
+      });
+  }, [id]);
 
   return (
     <div className="details">
-      {cocktail.length > 0 && (
+      {selectedCocktail && (
         <>
-          <div className="details__ingredients">
+          <div className="details__contents">
             <img
-              className="details__ingredients-image"
-              src={strDrinkThumb}
-              alt={strDrink}
+              className="details__contents-image"
+              src={selectedCocktail[0].strDrinkThumb}
+              alt={selectedCocktail[0].strDrink}
             />
-            <div>
-              <h1>Top Ingredients</h1>
-              <div className="details__ingredients-list">
-                {strIngredient1 && <li>{strIngredient1}</li>}
-                {strIngredient2 && <li>{strIngredient2}</li>}
-                {strIngredient3 && <li>{strIngredient3}</li>}
-                {strIngredient4 && <li>{strIngredient4}</li>}
-                {strIngredient5 && <li>{strIngredient5}</li>}
+            <div className="details__contents-info">
+              <div>
+                <span className="details__contents-info--names">Name</span>
+                <span className="details__contents-info--block">
+                  {selectedCocktail[0].strDrink}
+                </span>
               </div>
+              <div>
+                <span className="details__contents-info--names">Category</span>
+                <span className="details__contents-info--block">
+                  {selectedCocktail[0].strCategory}
+                </span>
+              </div>
+              <div>
+                <span className="details__contents-info--names">Info</span>
+                <span className="details__contents-info--block">
+                  {selectedCocktail[0].strAlcoholic}
+                </span>
+              </div>
+              <div>
+                <span className="details__contents-info--names">Glass</span>
+                <span className="details__contents-info--block">
+                  {selectedCocktail[0].strGlass}
+                </span>
+              </div>
+              <div>
+                <span className="details__contents-info--names">
+                  Instructions
+                </span>
+                <span className="details__contents-info--block">
+                  {selectedCocktail[0].strInstructions}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="details__ingredients">
+            <div style={{ fontSize: "2rem", marginRight: "1rem" }}>🥣</div>
+            <div className="details__ingredients-list">
+              {selectedCocktail[0].strIngredient1 && (
+                <li>{selectedCocktail[0].strIngredient1}</li>
+              )}
+              {selectedCocktail[0].strIngredient2 && (
+                <li>{selectedCocktail[0].strIngredient2}</li>
+              )}
+              {selectedCocktail[0].strIngredient3 && (
+                <li>{selectedCocktail[0].strIngredient3}</li>
+              )}
+              {selectedCocktail[0].strIngredient4 && (
+                <li>{selectedCocktail[0].strIngredient4}</li>
+              )}
+              {selectedCocktail[0].strIngredient5 && (
+                <li>{selectedCocktail[0].strIngredient5}</li>
+              )}
             </div>
           </div>
         </>

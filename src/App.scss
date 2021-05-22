@@ -82,18 +82,53 @@
 .details {
   margin: 2rem;
 
-  &__ingredients {
+  &__contents {
     display: flex;
+    align-items: center;
 
     &-image {
       width: 30rem;
       margin-right: 2rem;
     }
 
+    &-info {
+      flex: 1;
+      font-size: 1.4rem;
+
+      & > div {
+        margin-bottom: 0.5rem;
+      }
+
+      &--names {
+        padding: 0.2rem 0.5rem;
+        margin-right: 0.5rem;
+        background-color: var(--primary-medium);
+      }
+
+      &--block {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--gray-medium);
+      }
+    }
+  }
+
+  &__ingredients {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+
     &-list {
-      color: var(--gray-medium);
       font-size: 1.4rem;
       list-style: none;
+      display: flex;
+      color: var(--gray-medium);
+
+      & > li {
+        margin-right: 1rem;
+        padding: 0.2rem 0.5rem;
+        background-color: azure;
+      }
     }
   }
 }
@@ -101,4 +136,15 @@
 .error {
   font-size: 1.4rem;
   margin: 2rem;
+}
+
+.loader {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  &__infinity {
+    width: 10rem;
+    height: auto;
+  }
 }
