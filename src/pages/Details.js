@@ -25,12 +25,15 @@ function Details(props) {
               src={strDrinkThumb}
               alt={strDrink}
             />
-            <div className="details__ingredients-list">
-              {strIngredient1 && <li>{strIngredient1}</li>}
-              {strIngredient2 && <li>{strIngredient2}</li>}
-              {strIngredient3 && <li>{strIngredient3}</li>}
-              {strIngredient4 && <li>{strIngredient4}</li>}
-              {strIngredient5 && <li>{strIngredient5}</li>}
+            <div>
+              <h1>Top Ingredients</h1>
+              <div className="details__ingredients-list">
+                {strIngredient1 && <li>{strIngredient1}</li>}
+                {strIngredient2 && <li>{strIngredient2}</li>}
+                {strIngredient3 && <li>{strIngredient3}</li>}
+                {strIngredient4 && <li>{strIngredient4}</li>}
+                {strIngredient5 && <li>{strIngredient5}</li>}
+              </div>
             </div>
           </div>
         </>

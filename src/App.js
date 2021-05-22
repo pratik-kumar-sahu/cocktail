@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="container">
       <Router>
-        <LeftContainer />
+        <Route path="/" component={LeftContainer} />
         <Switch>
           <Route exact path="/" component={RightContainer} />
           <Route path="/about" component={About} />

@@ -87,9 +87,11 @@
 
     &-image {
       width: 30rem;
+      margin-right: 2rem;
     }
 
     &-list {
+      color: var(--gray-medium);
       font-size: 1.4rem;
       list-style: none;
     }

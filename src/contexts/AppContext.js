@@ -5,6 +5,7 @@ export const AppContext = createContext();
 function AppContextProvider(props) {
   const [cocktails, setCocktails] = useState([]);
   const [search, setSearch] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
@@ -15,7 +16,16 @@ function AppContextProvider(props) {
   }, [search]);
 
   return (
-    <AppContext.Provider value={{ cocktails, setCocktails, search, setSearch }}>
+    <AppContext.Provider
+      value={{
+        cocktails,
+        setCocktails,
+        search,
+        setSearch,
+        disabled,
+        setDisabled,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

@@ -1,9 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 
-function LeftContainer() {
-  const { search, setSearch } = useContext(AppContext);
+function LeftContainer(props) {
+  const { search, setSearch, disabled, setDisabled } = useContext(AppContext);
+
+  useEffect(() => {
+    if (props.location.pathname !== "/") {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [props, setDisabled]);
 
   return (
     <div className="leftContainer">
@@ -11,6 +19,7 @@ function LeftContainer() {
         <input
           className="leftContainer__search--inputBox"
           type="search"
+          disabled={disabled}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search cocktails"
