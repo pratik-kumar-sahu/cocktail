@@ -10,7 +10,11 @@ function Card({ idDrink, strDrink, strAlcoholic, strGlass, strDrinkThumb }) {
       />
       <div className="rightContainer__card--content">
         <div className="rightContainer__card--content-h2">
-          <h2>{strDrink}</h2>
+          <h2>
+            {strDrink.length > 10
+              ? strDrink.substring(0, 10) + "..."
+              : strDrink.substring(0, 10)}
+          </h2>
           <p style={{ color: "orangered" }}>{strAlcoholic}</p>
         </div>
         <h3>{strGlass}</h3>
